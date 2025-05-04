@@ -12,10 +12,12 @@
 
 ## 使い方
 
-### インストール
+### ビルド
 
 ```bash
-go install github.com/usk6666/stdio-logging-proxy
+git clone https://github.com/usk6666/stdio-logging-proxy.git
+cd stdio-logging-proxy
+go build
 ```
 
 ### 実行例
