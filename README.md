@@ -61,14 +61,16 @@ The log file records the contents of standard input, standard output, and standa
 
 - Log Image
 ```log
-2025/05/04 04:17:00 main.go:42: Starting proxy...
-2025/05/04 04:17:00 main.go:92: stdin: {"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"Roo Code","version":"3.15.3"}},"jsonrpc":"2.0","id":0}
-2025/05/04 04:17:00 main.go:117: stdout: {"id":0,"jsonrpc":"2.0","result":{"capabilities":{"prompts":{"listChanged":false},"resources":{"listChanged":false},"tools":{"listChanged":false}},"protocolVersion":"2024-11-05","serverInfo":{"name":"","version":""}}}
-2025/05/04 04:17:00 main.go:92: stdin: {"method":"notifications/initialized","jsonrpc":"2.0"}
-2025/05/04 04:17:00 main.go:92: stdin: {"method":"tools/list","jsonrpc":"2.0","id":1}
-2025/05/04 04:17:00 main.go:117: stdout: {"id":1,"jsonrpc":"2.0","result":{"tools":[{"description":"example mcp description","inputSchema":{"$schema":"https://json-schema.org/draft/2020-12/schema","properties":{"name":{"type":"string","description":"The name of example"}},"type":"object","required":["name"]},"name":"getExampleInformation"}]}}
-2025/05/04 04:17:00 main.go:92: stdin: {"method":"resources/list","jsonrpc":"2.0","id":2}
-2025/05/04 04:17:00 main.go:117: stdout: {"id":2,"jsonrpc":"2.0","result":{"resources":[]}}
-2025/05/04 04:17:00 main.go:92: stdin: {"method":"resources/templates/list","jsonrpc":"2.0","id":3}
-2025/05/04 04:17:00 main.go:117: stdout: {"id":3,"jsonrpc":"2.0","result":{"resourceTemplates":[]}}
+2025/06/07 11:57:39 stdio-proxy-msg: Starting proxy...
+2025/06/07 11:57:39 stdio-proxy-msg: Name: /path/to/mcp-server
+2025/06/07 11:57:39 stdio-proxy-msg: Args: [args]
+2025/05/04 04:17:00 stdin: {"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"Roo Code","version":"3.15.3"}},"jsonrpc":"2.0","id":0}
+2025/05/04 04:17:00 stdout: {"id":0,"jsonrpc":"2.0","result":{"capabilities":{"prompts":{"listChanged":false},"resources":{"listChanged":false},"tools":{"listChanged":false}},"protocolVersion":"2024-11-05","serverInfo":{"name":"","version":""}}}
+2025/05/04 04:17:00 stdin: {"method":"notifications/initialized","jsonrpc":"2.0"}
+2025/05/04 04:17:00 stdin: {"method":"tools/list","jsonrpc":"2.0","id":1}
+2025/05/04 04:17:00 stdout: {"id":1,"jsonrpc":"2.0","result":{"tools":[{"description":"example mcp description","inputSchema":{"$schema":"https://json-schema.org/draft/2020-12/schema","properties":{"name":{"type":"string","description":"The name of example"}},"type":"object","required":["name"]},"name":"getExampleInformation"}]}}
+2025/05/04 04:17:00 stdin: {"method":"resources/list","jsonrpc":"2.0","id":2}
+2025/05/04 04:17:00 stdout: {"id":2,"jsonrpc":"2.0","result":{"resources":[]}}
+2025/05/04 04:17:00 stdin: {"method":"resources/templates/list","jsonrpc":"2.0","id":3}
+2025/05/04 04:17:00 stdout: {"id":3,"jsonrpc":"2.0","result":{"resourceTemplates":[]}}
 ```
