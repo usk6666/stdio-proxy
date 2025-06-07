@@ -1,40 +1,43 @@
-# stdio-logging-proxy
+# stdio-proxy
 
-## 概要
+## Overview
 
-`stdio-logging-proxy` は、指定されたコマンドの標準入力と標準出力をプロキシし、すべての通信内容をログファイルに記録します。これにより、MCP サーバーとの通信をデバッグする際に、送受信されたメッセージを簡単に確認できます。
+`stdio-logging-proxy` proxies the standard input and standard output of a specified command and logs all communication to a log file. This allows you to easily check the messages sent and received when debugging communication with the MCP server.
 
-## 機能
+## Features
 
-*   **標準入出力のプロキシ:** 指定されたコマンドの標準入力と標準出力をプロキシします。
-*   **通信内容のログ記録:** すべての通信内容をログファイルに記録します。
-*   **環境変数による設定:** ログファイルのパスやプロキシ対象のコマンドを環境変数で設定できます。
+*   **Standard Input/Output Proxy:** Proxies the standard input and standard output of the specified command.
+*   **Communication Logging:** Logs all communication to a log file.
+*   **Configuration via Command-Line Arguments:** You can configure the log file path and the command to be proxied using command-line arguments.
 
-## 使い方
+## Usage
 
-### ビルド
+### Build
 
 ```bash
-git clone https://github.com/usk6666/stdio-logging-proxy.git
-cd stdio-logging-proxy
+git clone https://github.com/usk6666/stdio-proxy.git
+cd stdio-proxy
 go build
 ```
 
-### 実行例
+### Example Execution
 
 ```bash
-export PROXY_COMMAND="/bin/bash"
-stdio-logging-proxy
+./stdio-proxy exec /path/to/mcp-server mcp-args
+./stdio-proxy shell /path/to/mcp-server mcp-args
 ```
 
-## 設定
+## Command-Line Arguments
 
-### 環境変数
+*   `--output string`: Path to the output log file (default: `stdio-proxy.log`).
 
-*   `LOG_FILE`: ログファイルのパスを指定します (デフォルト: `stdio-logging-proxy.log`)。
-*   `PROXY_COMMAND`: プロキシするコマンドを指定します (デフォルト: `/bin/bash`)。
+## Configuration
 
-### Roo CodeへのMCPサーバ設定例
+### Environment Variables
+
+N/A
+
+### Example MCP Server Configuration for Roo Code
 
 - .roo/mcp.json
 ```json
@@ -43,11 +46,7 @@ stdio-logging-proxy
     "example": {
       "name": "example-mcp",
       "description": "example mcp server",
-      "command": "/path/to/stdio-logging-proxy",
-      "env": {
-        "PROXY_COMMAND": "/path/to/example-mcp-server",
-        "LOG_FILE": "/path/to/logfile.txt"
-      },
+      "command": "/path/to/stdio-proxy /path/to/mcp-server args",
       "timeout": 30,
       "alwaysAllow": [],
       "disabled": false
@@ -56,11 +55,11 @@ stdio-logging-proxy
 }
 ```
 
-## ログ
+## Logging
 
-ログファイルには、標準入力、標準出力、標準エラー出力の内容が記録されます。
+The log file records the contents of standard input, standard output, and standard error output.
 
-- ログイメージ
+- Log Image
 ```log
 2025/05/04 04:17:00 main.go:42: Starting proxy...
 2025/05/04 04:17:00 main.go:92: stdin: {"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"Roo Code","version":"3.15.3"}},"jsonrpc":"2.0","id":0}
