@@ -2,7 +2,7 @@
 
 ## Overview
 
-`stdio-logging-proxy` proxies the standard input and standard output of a specified command and logs all communication to a log file. This allows you to easily check the messages sent and received when debugging communication with the MCP server.
+`stdio-proxy` proxies the standard input and standard output of a specified command and logs all communication to a log file. This allows you to easily check the messages sent and received when debugging communication with the MCP server.
 
 ## Features
 
